@@ -2,6 +2,7 @@ FROM php:5.6.37-stretch
 LABEL Maintainer="qw" \
       Description="gRPC with Linux."
 
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
 # Install packages
 RUN apt-get update && apt-get install -y -q \
     autoconf \
@@ -11,6 +12,8 @@ RUN apt-get update && apt-get install -y -q \
     zlib1g-dev \
     libtool \
     nginx \
+    nodejs \
+    npm \
     rake \
     vim \
     wget 
