@@ -1,4 +1,4 @@
-FROM php:5.6-zts-stretch
+FROM php:7.2-alpine
 LABEL Maintainer="qw" \
       Description="gRPC with PHP-FPM Alpine Linux."
 
@@ -14,13 +14,13 @@ RUN apk update && apk upgrade && apk --no-cache add \
     vim \
     wget \
     zlib-dev
-    
+
 ###install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 ###Install grpc and PHPunit
-RUN wget -O phpunit https://phar.phpunit.de/phpunit-5.phar  && \
+RUN wget -O phpunit https://phar.phpunit.de/phpunit-5.phar && \
          chmod +x phpunit  && \
-         mv phpunit /usr/bin && \
+         mv phpunit /usr/bin
 
 
 
